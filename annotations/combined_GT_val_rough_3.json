@@ -1,0 +1,167 @@
+{
+    "oe": [
+      {
+          "unique_id": 2747,
+          "language": "arabic",
+          "video_id": "vid_29.mp4",
+          "question_format": "Open Ended",
+          "video_category": "Culture",
+          "duration": "short",
+          "question": "ما النبات الذي تم استخدامه لصبغ الصفحات؟",
+          "answer": "نبات النيلي"
+      },
+      {
+          "unique_id": 2733,
+          "language": "arabic",
+          "video_id": "vid_15.mp4",
+          "question_format": "Open Ended",
+          "video_category": "Culture",
+          "duration": "short",
+          "question": "ما هي الالية التي تمر آخرًا في الخلفية؟",
+          "answer": "سيارة الإسعاف"
+      },
+      {
+          "unique_id": 2858,
+          "language": "bengali",
+          "video_id": "vid_40.mp4",
+          "question_format": "Open Ended",
+          "video_category": "Culture",
+          "duration": "short",
+          "question": "মসজিদ থেকে বাড়ি ফিরে বাংলাদেশি মানুষজন কাদের সঙ্গে ঈদ উদযাপন করতে পছন্দ করে?",
+          "answer": "বাংলাদেশের মানুষ তাদের পরিবার এবং প্রিয়জনদের সাথে ঈদ উদযাপন করতে পছন্দ করে"
+      },
+      {
+          "unique_id": 2867,
+          "language": "bengali",
+          "video_id": "vid_49.mp4",
+          "question_format": "Open Ended",
+          "video_category": "Culture",
+          "duration": "medium",
+          "question": "রেফারি কীভাবে প্রথমার্ধের সমাপ্তি নির্দেশ করে?",
+          "answer": "রেফারি প্রথমার্ধ শেষ করতে বাঁশি বাজান"
+      },
+      {
+          "unique_id": 2999,
+          "language": "chinese",
+          "video_id": "vid_82.mp4",
+          "question_format": "Open Ended",
+          "video_category": "Culture",
+          "duration": "medium",
+          "question": "视频中的这项运动在奥林匹克运动会的首次亮相是什么时候？",
+          "answer": "乒乓球在1988年首度作为正式比赛项目进入夏季奥运会。"
+      },
+      {
+          "unique_id": 2994,
+          "language": "chinese",
+          "video_id": "vid_77.mp4",
+          "question_format": "Open Ended",
+          "video_category": "Culture",
+          "duration": "long",
+          "question": "视频中的食物可以追溯到哪个朝代?",
+          "answer": "战国时期."
+      }
+    ],
+    "mcq": [
+      {
+          "unique_id": 4760,
+          "language": "arabic",
+          "video_id": "vid_1.mp4",
+          "question_format": "MCQ",
+          "video_category": "Culture",
+          "duration": "medium",
+          "question": "وفقًا للمقدم، ما يجب أن يكون الرد على \"مرحبا\" باللغة العربية؟",
+          "answer": "مرحبا",
+          "answer_choice": "A",
+          "options": [
+              "مرحبا",
+              "يوم سعيد",
+              "السلام عليكم",
+              "أهلاً"
+          ]
+      },
+      {
+          "unique_id": 4761,
+          "language": "arabic",
+          "video_id": "vid_1.mp4",
+          "question_format": "MCQ",
+          "video_category": "Culture",
+          "duration": "medium",
+          "question": "ما هي أكثر الطرق شيوعًا لقول وداعًا؟",
+          "answer": "مع السلامة",
+          "answer_choice": "A",
+          "options": [
+              "مع السلامة",
+              "وداعًا",
+              "الى اللقاء",
+              "سلام"
+          ]
+      },
+      {
+          "unique_id": 4859,
+          "language": "bengali",
+          "video_id": "vid_2403.mp4",
+          "question_format": "MCQ",
+          "video_category": "Life Record",
+          "duration": "short",
+          "question": "ভিডিওর কোন অংশে 'ব্যক্তি রান আউট' ক্রিয়াটি ঘটে?",
+          "answer": "ভিডিওর শেষে",
+          "answer_choice": "A",
+          "options": [
+              "ভিডিওর শেষে",
+              "ভিডিওর শুরুতে",
+              "ভিডিওর মাঝখানে",
+              "পুরো ভিডিও জুড়ে"
+          ]
+      },
+      {
+          "unique_id": 4860,
+          "language": "bengali",
+          "video_id": "vid_1384.mp4",
+          "question_format": "MCQ",
+          "video_category": "Life Record",
+          "duration": "short",
+          "question": "ব্যক্তিটি তির্যক সমতলে বস্তুটিকে কতবার চালু করেছিল?",
+          "answer": "তিন",
+          "answer_choice": "B",
+          "options": [
+              "চার",
+              "তিন",
+              "পাঁচ"
+          ]
+      },
+      {
+          "unique_id": 5054,
+          "language": "chinese",
+          "video_id": "vid_2403.mp4",
+          "question_format": "MCQ",
+          "video_category": "Life Record",
+          "duration": "short",
+          "question": "“人跑出去”这个动作发生在视频的哪个部分？",
+          "answer": "视频结尾处",
+          "answer_choice": "D",
+          "options": [
+              "在视频中间",
+              "整个视频中",
+              "在视频的开头",
+              "视频结尾处"
+          ]
+      },
+      {
+          "unique_id": 5055,
+          "language": "chinese",
+          "video_id": "vid_1384.mp4",
+          "question_format": "MCQ",
+          "video_category": "Life Record",
+          "duration": "short",
+          "question": "该人向倾斜平面发射了该物体多少次？",
+          "answer": "三",
+          "answer_choice": "C",
+          "options": [
+              "四",
+              "五",
+              "三"
+          ]
+      }
+    ]
+
+}

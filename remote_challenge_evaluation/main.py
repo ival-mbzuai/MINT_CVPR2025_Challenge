@@ -9,11 +9,11 @@ from evaluate import evaluate
 
 # Remote Evaluation Meta Data
 # See https://evalai.readthedocs.io/en/latest/evaluation_scripts.html#writing-remote-evaluation-script
-auth_token = os.environ["eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc0MjI4ODIxMCwianRpIjoiM2VkNzU1ZGFlYzMxNDAxOGFmN2UyOTkwYmJlMTk1MWQiLCJ1c2VyX2lkIjo0MTgxNH0.Iofvc2KanYyTEOpxxyQco0awXYeLDtik8sFH7n-4OHU"]
+auth_token = os.environ["eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2ODQwOTQwNSwianRpIjoiYzMyNGU2ZmJjNWQ1NDE1OWI0ZGQ5ZDQwZDgxOGEwMGIiLCJ1c2VyX2lkIjo1MDc0Nn0.X9j7cT7ovV3KyMiE3zwjNGhIP46UsR4DG-tnJMmxG80"]
 evalai_api_server = os.environ["https://eval.ai"]
-queue_name = os.environ["random-number-generator-challenge-2250-production-34c325ac-cfa5-4e8f-ac01-6d7162"]
-challenge_pk = os.environ["2250"]
-save_dir = os.environ.get("SAVE_DIR", "./")
+queue_name = os.environ["v3det-challenge-2024-vast-vocabulary-visual-dete-2445-production-365662f9-2b88-4"]
+challenge_pk = os.environ["2445"]
+save_dir = os.environ.get("SAVE_DIR", "./SUBMISSIONS/")
 
 
 def download(submission, save_dir):
@@ -68,6 +68,31 @@ def update_finished(
     }
     update_data = evalai.update_submission_data(submission_data)
 
+def extract_unique_ids(json_data):
+    oe_ids = [entry['unique_id'] for entry in json_data['oe']]
+    mcq_ids = [entry['unique_id'] for entry in json_data['mcq']]
+    return oe_ids + mcq_ids  # Return combined list of unique IDs
+
+def check_submission_file_ids(val_annotation_file_path, submission_file_path):
+    with open(submission_file_path, "r", encoding="utf-8") as file:
+        data_sub = json.load(file)
+
+    with open(val_annotation_file_path, "r", encoding="utf-8") as file:
+        data_val = json.load(file)
+
+    # Extract unique IDs from both JSONs
+    val_json_ids = extract_unique_ids(data_val)
+    sub_json_ids = extract_unique_ids(data_sub)
+
+    # Check if all unique_ids from second JSON are in the first JSON
+    missing_ids = set(sub_json_ids) - set(val_json_ids)
+    if missing_ids:
+        # print("Missing unique_ids from second JSON:", missing_ids)
+        return False
+    else:
+        # print("No unique_ids are missing in the second JSON.")
+        return True
+
 
 if __name__ == "__main__":
     evalai = EvalAI_Interface(auth_token, evalai_api_server, queue_name, challenge_pk)
@@ -95,14 +120,31 @@ if __name__ == "__main__":
                 if submission.get("status") == "submitted":
                     update_running(evalai, submission_pk)
                 submission_file_path = download(submission, save_dir)
-                try:
-                    results = evaluate(
-                        submission_file_path, challenge_phase["codename"]
-                    )
-                    update_finished(
-                        evalai, phase_pk, submission_pk, json.dumps(results["result"])
-                    )
-                except Exception as e:
-                    update_failed(evalai, phase_pk, submission_pk, str(e))
+                val_annotation_file_path = "./annotations/combined_GT_val_rough_3.json"
+                test_annotation_file_path = "./annotations/combined_GT_val_rough_3.json"
+
+                ## Check for ids present in submission file
+                if challenge_phase["codename"] == "val":
+                    all_ids_present = check_submission_file_ids(val_annotation_file_path, submission_file_path)
+                else:
+                    all_ids_present = check_submission_file_ids(test_annotation_file_path, submission_file_path)
+
+                if all_ids_present:
+                    try:
+                        if challenge_phase["codename"] == "val":
+                            results = evaluate(
+                                val_annotation_file_path, submission_file_path, challenge_phase["codename"]
+                            )
+                        else:
+                            results = evaluate(
+                                test_annotation_file_path, submission_file_path, challenge_phase["codename"]
+                            )
+                        update_finished(
+                            evalai, phase_pk, submission_pk, json.dumps(results["result"])
+                        )
+                    except Exception as e:
+                        update_failed(evalai, phase_pk, submission_pk, str(e))
+                else:
+                    update_failed(evalai, phase_pk, submission_pk, "Missing data in submission file")
         # Poll challenge queue for new submissions
-        time.sleep(60)
+        time.sleep(5)

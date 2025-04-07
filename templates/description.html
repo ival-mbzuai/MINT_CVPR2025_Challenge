@@ -1,16 +1,16 @@
-<h3>Multilingual Video Reasoning Evaluation</h3>
-<p>😊<a href="https://huggingface.co/datasets/MBZUAI/MINT">Dataset</a>|💻<a href="https://github.com/V3Det">Github</a></p>
+<h3>Welcome to the Multilingual Video Reasoning Evaluation Challenge at CVPR 2025!</h3>
+<p>😊<a href="https://mbzuaiac-my.sharepoint.com/:f:/g/personal/bhuiyan_shafique_mbzuai_ac_ae/EuXIJ_g5T4pIkKsgQbddTI8BbuhJRNzkd0_i_BlEifGTww?e=kKiQSZ">Dataset</a>|🎉<a href="https://www.crcv.ucf.edu/cvpr2025-vidllms-workshop">Homepage</a></p>
 
-<div id="countdown">
+<!-- <div id="countdown">
         <p style="font-family: 'Arial', sans-serif; color: cornflowerblue; display: inline-block; margin: 0;">
-          Countdown to Development Phase:
+          Countdown to Validation Phase:
         </p>
         <div id="timer" style="display: inline-block;"></div>
 </div>
 
 <div id="countdown1">
         <p style="font-family: 'Arial', sans-serif; color: cornflowerblue; display: inline-block; margin: 0;">
-          Countdown to Technical Report Submission:
+          Countdown to Test Submission:
         </p>
         <div id="timer1" style="display: inline-block;"></div>
 </div>
@@ -73,26 +73,33 @@
                 document.getElementById("timer1").innerHTML = "EXPIRED";
             }
         }, 1000);
-</script>
+</script> -->
 
 
-<p>Hosted jointly with The 4th Open World Vision Workshop: <a href="https://vplow.github.io/vplow_4th.html">Visual Perception via Learning in an Open World (VPLOW) at CVPR'24</a></p>
+<h4>Task</h4>
+<p>Multilingual Video Reasoning Evaluation challenge proposes a comprehensive benchmark designed to evaluate the multilingual and culturally grounded reasoning capabilities of Video Large Multimodal Models (Video-LMMs). Going beyond standard benchmarks that typically focus on English and generic video understanding, it enables rigorous testing across a broad linguistic and cultural spectrum by incorporating 14 diverse languages—including several under-represented ones—and 15 real-world domains. The languages involve Arabic, Bengali, Chinese, English, French, German, Hindi, Japanese, Russian, Sinhala, Spanish, Swedish, Tamil and Urdu.</p>
 
-<h4>Competition Introduction</h4>
-<p>Welcome to the <strong>Multilingual Video Reasoning Challenge at CVPR 2025</strong>, hosted by <strong>MBZUAI-IVAL</strong>. This challenge aims to evaluate model’s ability to reason over videos in diverse linguistic and cultural contexts, pushing the boundaries of multilingual video understanding.</p>
-<p>Our dataset spans <strong>11 languages</strong> and includes a rich collection of videos with corresponding question-answer (QA) pairs, covering both <strong>open-ended and multiple-choice (MCQ) formats</strong>. The dataset is structured into <strong>7 diverse categories</strong>, with a dedicated Cultural category that features multiple sub-categories, capturing the complexity of cross-cultural understanding.</p>
-<p>Participants will work with test and validation sets designed to assess generalization across languages, question types, and video content. This challenge offers a unique opportunity to advance the development of robust multimodal AI models capable of understanding video content beyond English-centric datasets.</p>
-<p>Join us in pushing the limits of multilingual and cross-cultural video reasoning!</p>
+<h4>Dataset</h4>
+The validation split consists of 1440 open-ended and 1180 mcq based question-answer (QA) pairs spanning 354 unique videos. As for the test split it consists of 2039 open-ended and 3366 QA pairs, derived from 525 unique videos. In overall, the dataset spans 14 languages with total of 8025 QA pairs from 879 videos, where they belong to 7 generic categories and 8 cultural categories.
 
-<h4>Important Dates</h4>
-<p> Apr 3. 2024: The test server is open on EvalAI</p>
-<p> Old DDL </p>
-<p> June 3. 2024 at 11:59 PM PDT: Results submission DDL. The test server will be closed after the DDL</p>
-<p> June 9. 2024 at 11:59 PM PDT: Technical report submission DDL</p>
-<p> <strong> New DDL ! </strong></p>
-<p> June 12. 2024 at 11:59 PM PDT: Results submission DDL. The test server will be closed after the DDL</p>
-<p> June 18. 2024 at 11:59 PM PDT: Technical report submission DDL</p>
-<p> Please join the <a href="https://discord.gg/Dnj5JE3p">Discord Group</a> or QQ Group (849660410) if you have any questions.</p>
+<h4>Challenge Phases</h4>
+<ol type="1">
+    <li>Validation Phase: Participants submit their model predictions on the validation dataset. Participants can choose to make submissions public or private during this phase and the number of submissions are limited to 5 per day and 30 per month.</li>
+    <li>Test Phase: Participants submit their model predictions on the test dataset. The final evaluation and ranking will be based on the performance on this split. The top-performing models will be awarded. Submissions are limited to 20 per day and 200 per month.</li>
+</ol>
+
+<h4>Competition Rules</h4>
+<ol type="1">
+  <li>Submissions must be public in the test phase to be considered for the prize.</li>
+  <li>Participants need to submit a technical report (PDF file).</li>
+  <li>There must be no explicit human labelling on the test videos.</li>
+  <li>Test and validation data must not be used for any kind of training (supervised or self-supervised). Any other dataset can be used for training, fine-tuning, or prompting.</li>
+  <li>There are no restrictions on the model side; any model is eligible for prizes.</li>
+</ol>
+
+
+
+<p><strong>For more detailed challenge information, please refer to <a href="https://www.crcv.ucf.edu/cvpr2025-vidllms-workshop">Competition Homepage</a>.</strong></p>
 
 <!-- <p> <strong> Notification ! </strong></p>
 <p> If you fail to submit result using the command line, please join our QQ group and send the json file directly to us. Email: 2020302121195@whu.edu.cn</p> -->
